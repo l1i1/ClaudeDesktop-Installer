@@ -1,10 +1,10 @@
-# Claude Desktop 一键安装程序（国内网络优化版，纯 C# 实现）
+# Claude Desktop 一键安装程序（国内网络优化版）
 
-Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Claude Code binary not available` 问题。全部逻辑由单个 C# 程序实现（无 PowerShell 脚本依赖），实时显示下载进度与速度。
+Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Claude Code binary not available` 问题。
 
 ## 快速开始（使用教程）
 
-**1. 下载**：下载 [ClaudeDesktop-Installer.exe](./ClaudeDesktop-Installer.exe)，或从 [Releases](https://github.com/l1i1/ClaudeDesktop-Installer/releases) 获取。
+**1. 下载**：下载 [ClaudeDesktop-Installer.exe](https://github.com/l1i1/ClaudeDesktop-Installer/raw/refs/heads/main/ClaudeDesktop-Installer.exe)，或从 [Releases](https://github.com/l1i1/ClaudeDesktop-Installer/releases) 获取。
 
 **2. 运行**：双击 exe，在 UAC 弹窗点"是"。程序自动完成：
 
