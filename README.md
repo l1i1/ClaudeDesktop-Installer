@@ -18,8 +18,6 @@ Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Clau
 → 聚合 API 配置（见下一步）
 ```
 
-<img src="img/run.png" width="720" alt="安装脚本运行截图"/>
-
 **3. 配置聚合 API**（Tokeness.io，回车即默认值）：
 
 ```
@@ -28,6 +26,8 @@ Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Clau
   API Key（格式 sk-xxxxxx）:                                         粘贴你的 Key
   模型 ID（回车使用官方最新 claude-opus-5,...）:                     回车
 ```
+
+<img src="img/run.png" width="720" alt="安装脚本运行截图"/>
 
 - Key 在 https://tokeness.io/keys 注册获取
 - Key 留空回车会自动打开浏览器跳转到获取页面
