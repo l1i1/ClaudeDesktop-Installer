@@ -18,6 +18,8 @@ Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Clau
 → 聚合 API 配置（见下一步）
 ```
 
+<img src="img/run.png" width="720" alt="安装脚本运行截图"/>
+
 **3. 配置聚合 API**（Tokeness.io，回车即默认值）：
 
 ```
@@ -33,6 +35,8 @@ Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Clau
 **4. 重启生效**：完全退出 Claude Desktop（含系统托盘图标）再重新打开。
 
 **5. 验证**：开始对话。若仍提示连接失败，检查 `reg query HKCU\SOFTWARE\Policies\Claude` 应有 4 个 `inference*` 值。
+
+<img src="img/desktop.png" width="720" alt="Claude Desktop 运行截图"/>
 
 > 已安装过的环境重复运行会命中缓存并跳过已装步骤，可安全重复执行。
 
