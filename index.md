@@ -18,7 +18,7 @@ faq:
   - q: "npm install 失败？"
     a: "检查 `registry.npmmirror.com` 连通性，或先执行 `npm config set registry https://registry.npmmirror.com`。"
   - q: "安装后 Cowork 不可用？"
-    a: "确认安装输出为"机器范围注册成功"（本程序默认走此路径）。"
+    a: "确认安装输出为「机器范围注册成功」（本程序默认走此路径）。"
   - q: "仍提示连接失败？"
     a: "完全退出（含托盘）重启 Claude Desktop，并确认 `reg query HKCU\\SOFTWARE\\Policies\\Claude` 有 4 个 `inference*` 值。"
 ---
