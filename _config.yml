@@ -1,0 +1,11 @@
+title: "Claude Desktop 一键安装程序（国内网络优化版）"
+description: "Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 Host Claude Code binary not available。镜像加速下载官方 MSIX、SHA256 校验、自动配置聚合 API，双击即用。"
+url: "https://l1i1.github.io"
+baseurl: "/ClaudeDesktop-Installer"
+lang: zh-CN
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
