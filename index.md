@@ -107,3 +107,9 @@ faq:
 - MSIX 来自第三方镜像但**未重打包**，按源比对官方 SHA256；对供应链敏感可改用 `-Mirror official` 并自行挂代理
 - 需要 Windows 10/11 64 位、管理员权限
 - 若组策略限制 MSIX 侧载，机器范围注册会失败并自动回退用户级（此时 Cowork 可能不可用，属官方行为）
+
+## 相关链接
+
+- [Claude Desktop 国内安装教程](https://mrshrawho.github.io/claude-desktop-install-guide/)
+- [Codex App 一键安装程序](https://l1i1.github.io/CodexAppInstaller/)（同系列工具）
+- [Codex App（ChatGPT 桌面版）国内安装教程](https://mrshrawho.github.io/codex-app-install-guide/)
