@@ -2,15 +2,47 @@
 
 Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Claude Code binary not available` 问题。全部逻辑由单个 C# 程序实现（无 PowerShell 脚本依赖），实时显示下载进度与速度。
 
+## 快速开始（使用教程）
+
+**1. 下载**：下载 [ClaudeDesktop-Installer.exe](./ClaudeDesktop-Installer.exe)，或从 [Releases](https://github.com/l1i1/ClaudeDesktop-Installer/releases) 获取。
+
+**2. 运行**：双击 exe，在 UAC 弹窗点"是"。程序自动完成：
+
+```
+下载 MSIX（GitHub 镜像 → R2 → 官方，有缓存则秒过）
+→ 校验 SHA256
+→ 静默安装（已装则跳过）
+→ Node.js 检测（已装则跳过）
+→ 安装 claude-code 并修复 Claude Code 二进制
+→ 创建桌面快捷方式
+→ 聚合 API 配置（见下一步）
+```
+
+**3. 配置聚合 API**（Tokeness.io，回车即默认值）：
+
+```
+是否配置聚合 API？Key 请到 https://tokeness.io/keys 注册获取 [Y/n]   回车（默认 Y）
+  中转 Base URL [默认 https://n.tokeness.io]:                        回车
+  API Key（格式 sk-xxxxxx）:                                         粘贴你的 Key
+  模型 ID（回车使用官方最新 claude-opus-5,...）:                     回车
+```
+
+- Key 在 https://tokeness.io/keys 注册获取
+- Key 留空回车会自动打开浏览器跳转到获取页面
+
+**4. 重启生效**：完全退出 Claude Desktop（含系统托盘图标）再重新打开。
+
+**5. 验证**：开始对话。若仍提示连接失败，检查 `reg query HKCU\SOFTWARE\Policies\Claude` 应有 4 个 `inference*` 值。
+
+> 已安装过的环境重复运行会命中缓存并跳过已装步骤，可安全重复执行。
+
 ## 文件
 
 | 文件 | 说明 |
 |---|---|
-| `ClaudeDesktop-Installer.exe` | **最终分发物**，全 C# 自包含（~28KB）。双击即用，自动提权 |
+| `ClaudeDesktop-Installer.exe` | **最终分发物**，全 C# 自包含（~36KB）。双击即用，自动提权 |
 | `Installer.cs` | 完整源码（下载 / 校验 / 安装 / Node.js / claude-code / 修复 / 验证） |
 | `build-exe.bat` | 重新编译脚本（本机 .NET Framework csc + PowerShell SDK，无第三方依赖） |
-| `install-claude.ps1` | 早期 PowerShell 版本，保留仅供逻辑参考（exe 不再依赖它） |
-| `_smoke-test.ps1` / `_progress-test.ps1` | 早期 ps1 版单测，仅供参考 |
 
 ## 用法
 
