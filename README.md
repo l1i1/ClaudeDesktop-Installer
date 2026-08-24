@@ -18,18 +18,18 @@ Windows 上绕过网络限制，一键安装 Claude Desktop 并修复 `Host Clau
 → 聚合 API 配置（见下一步）
 ```
 
-**3. 配置聚合 API**（Tokeness.io，回车即默认值）：
+**3. 配置聚合 API**（Tokeness，回车即默认值）：
 
 ```
-是否配置聚合 API？Key 请到 https://tokeness.io/keys 注册获取 [Y/n]   回车（默认 Y）
-  中转 Base URL [默认 https://n.tokeness.io]:                        回车
+是否配置聚合 API？Key 请到 https://tokeness.ai/keys 注册获取 [Y/n]   回车（默认 Y）
+  聚合 Base URL [默认 https://n.tokeness.dev]:                        回车
   API Key（格式 sk-xxxxxx）:                                         粘贴你的 Key
   模型 ID（回车使用官方最新 claude-opus-5,...）:                     回车
 ```
 
 <img src="img/run.png" width="720" alt="安装脚本运行截图"/>
 
-- Key 在 https://tokeness.io/keys 注册获取
+- Key 在 https://tokeness.ai/keys 注册获取
 - Key 留空回车会自动打开浏览器跳转到获取页面
 
 **4. 重启生效**：完全退出 Claude Desktop（含系统托盘图标）再重新打开。
@@ -101,14 +101,14 @@ ClaudeDesktop-Installer.exe -h                          :: 帮助
 6. 创建 `.verified` 标记文件（二进制下载完成标记）
 7. 重启 Claude Desktop
 
-### 4. 聚合 API 配置（Tokeness.io 等 Anthropic 兼容端点）
+### 4. 聚合 API 配置（Tokeness 等 Anthropic 兼容端点）
 
 国内无法直接登录 Anthropic 账号时，可配置第三方聚合端点：
 
-- 默认端点 `https://n.tokeness.io`，API Key 到 https://tokeness.io/keys 注册获取（格式 `sk-xxxxxx`）
-- 运行到该步骤默认选 **Y**（直接回车即配置聚合 API）；Base URL 可回车取默认；Key 留空回车会自动打开浏览器跳到 https://tokeness.io/keys 引导获取
+- 默认端点 `https://n.tokeness.dev`，API Key 到 https://tokeness.ai/keys 注册获取（格式 `sk-xxxxxx`）
+- 运行到该步骤默认选 **Y**（直接回车即配置聚合 API）；Base URL 可回车取默认；Key 留空回车会自动打开浏览器跳到 https://tokeness.ai/keys 引导获取
 - 也可直接参数指定：
-  `ClaudeDesktop-Installer.exe -ApiBaseUrl https://n.tokeness.io -ApiKey sk-xxxxxx`
+  `ClaudeDesktop-Installer.exe -ApiBaseUrl https://n.tokeness.dev -ApiKey sk-xxxxxx`
 - **模型 ID 默认官方最新**（2026-08：`claude-opus-5,claude-sonnet-5,claude-haiku-4-5`）：交互时回车即采用默认，或输入逗号分隔自定义；也可参数 `-ApiModels claude-opus-5,claude-sonnet-5` 覆盖；会写入注册表 `inferenceModels`（REG_SZ 存 JSON 数组字符串）。模型名需符合 Claude 角色命名，具体支持以 Tokeness 平台为准
 - 写入位置（自动合并保留原内容）：
   - **注册表策略**（Claude Desktop 3P 推理配置，官方 MDM 方式）：`HKCU\SOFTWARE\Policies\Claude`（若 HKLM 已存在机器策略则写 HKLM），键为 `inferenceProvider=gateway`、`inferenceGatewayBaseUrl`、`inferenceGatewayApiKey`、`inferenceGatewayAuthScheme=bearer`
@@ -120,7 +120,7 @@ ClaudeDesktop-Installer.exe -h                          :: 帮助
 
 ## 边界与风险
 
-- 本程序只解决**安装环节**的网络问题（下载安装包 / 组件）。**登录账号与日常使用**仍需要能访问 Anthropic 的网络环境（代理 / 中转服务）。
+- 本程序只解决**安装环节**的网络问题（下载安装包 / 组件）。**登录账号与日常使用**仍需要能访问 Anthropic 的网络环境（代理服务）。
 - MSIX 来自第三方镜像但**未重打包**，且按源比对官方 SHA256；对供应链敏感可改用 `-Mirror official` 并自行挂代理。
 - 需要 Windows 10/11 64 位、管理员权限。
 - 若组策略限制 MSIX 侧载，机器范围注册会失败并自动回退用户级（此时 Cowork 可能不可用，属官方行为）。

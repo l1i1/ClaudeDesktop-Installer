@@ -34,7 +34,7 @@ namespace ClaudeInstaller
         private static string ApiBaseUrl = "";
         private static string ApiKey = "";
         private static string ApiModels = "";
-        private const string DefaultApiBaseUrl = "https://n.tokeness.io";
+        private const string DefaultApiBaseUrl = "https://n.tokeness.dev";
         // 官方最新模型（2026-08：Opus 5 / Sonnet 5 / Haiku 4.5），回车默认采用
         private const string DefaultApiModels = "claude-opus-5,claude-sonnet-5,claude-haiku-4-5";
 
@@ -185,7 +185,7 @@ namespace ClaudeInstaller
                 }
                 else Warn("已跳过 Claude Code 修复 (-SkipClaudeCode)");
 
-                // [6] API 中转配置（Tokeness.io 等 Anthropic 兼容端点）
+                // [6] 聚合 API 配置（Tokeness 等 Anthropic 兼容端点）
                 if (!SkipApi) ConfigureApi(userData);
 
                 // [7] 创建桌面快捷方式
@@ -226,7 +226,7 @@ namespace ClaudeInstaller
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(" 注意: 本程序仅解决「下载安装包/组件」的网络问题。");
-                Console.WriteLine(" 登录账号与日常使用仍需要可访问 Anthropic 的网络环境（代理或中转）。");
+                Console.WriteLine(" 登录账号与日常使用仍需要可访问 Anthropic 的网络环境（代理服务）。");
                 Console.ResetColor();
                 Console.WriteLine("===============================================");
             }
@@ -947,7 +947,7 @@ namespace ClaudeInstaller
             Ok("位置: " + targetDir);
         }
 
-        // ================= API 中转配置（Tokeness.io 等 Anthropic 兼容端点） =================
+        // ================= 聚合 API 配置（Tokeness 等 Anthropic 兼容端点） =================
         private static string SafeReadLine()
         {
             try { return Console.ReadLine() ?? ""; }
@@ -963,14 +963,14 @@ namespace ClaudeInstaller
             if (string.IsNullOrEmpty(apiKey) && !SkipApi)
             {
                 Console.WriteLine();
-                Console.Write("是否配置聚合 API？Key 请到 https://tokeness.io/keys 注册获取 [Y/n] ");
+                Console.Write("是否配置聚合 API？Key 请到 https://tokeness.ai/keys 注册获取 [Y/n] ");
                 string ans = SafeReadLine();
                 // 默认 Y：直接回车即配置
                 bool yes = string.IsNullOrWhiteSpace(ans) ||
                            ans.Trim().ToLower() == "y" || ans.Trim().ToLower() == "yes";
                 if (yes)
                 {
-                    Console.Write("  中转 Base URL [默认 " + DefaultApiBaseUrl + "]: ");
+                    Console.Write("  聚合 Base URL [默认 " + DefaultApiBaseUrl + "]: ");
                     string b = SafeReadLine();
                     if (!string.IsNullOrEmpty(b)) baseUrl = b.Trim();
                     Console.Write("  API Key（格式 sk-xxxxxx）: ");
@@ -978,8 +978,8 @@ namespace ClaudeInstaller
                     if (string.IsNullOrEmpty(apiKey))
                     {
                         // 未输入 Key → 打开浏览器引导去获取页面注册
-                        try { Process.Start("https://tokeness.io/keys"); } catch { }
-                        Console.WriteLine("  已打开 https://tokeness.io/keys，请注册获取 Key 后粘贴：");
+                        try { Process.Start("https://tokeness.ai/keys"); } catch { }
+                        Console.WriteLine("  已打开 https://tokeness.ai/keys，请注册获取 Key 后粘贴：");
                         apiKey = SafeReadLine().Trim();
                     }
                     if (string.IsNullOrEmpty(ApiModels))
@@ -1172,8 +1172,8 @@ namespace ClaudeInstaller
             Console.WriteLine("  -Mirror github|r2|official 下载源优先级（默认 github）");
             Console.WriteLine("  -SkipChecksum              跳过 SHA256 校验（不推荐）");
             Console.WriteLine("  -SkipApi                   跳过聚合 API 配置");
-            Console.WriteLine("  -ApiBaseUrl <url>          聚合 API 地址（默认 https://n.tokeness.io）");
-            Console.WriteLine("  -ApiKey <key>              API Key（https://tokeness.io/keys 注册获取）");
+            Console.WriteLine("  -ApiBaseUrl <url>          聚合 API 地址（默认 https://n.tokeness.dev）");
+            Console.WriteLine("  -ApiKey <key>              API Key（https://tokeness.ai/keys 注册获取）");
             Console.WriteLine("  -ApiModels <list>          模型 ID，逗号分隔（默认官方最新 claude-opus-5,claude-sonnet-5,claude-haiku-4-5）");
             Console.WriteLine();
             Console.WriteLine("无参数双击即可开始安装。");

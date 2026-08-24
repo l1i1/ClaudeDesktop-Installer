@@ -25,7 +25,7 @@ if not exist "%WEX%" (
 )
 
 cd /d "%~dp0"
-"%CSC%" /nologo /target:exe /optimize /out:ClaudeDesktop-Installer.exe /r:"%PSDLL%" /r:"%WEX%" Installer.cs
+"%CSC%" /nologo /target:exe /optimize /platform:x64 /out:ClaudeDesktop-Installer.exe /r:"%PSDLL%" /r:"%WEX%" Installer.cs
 if errorlevel 1 (
     echo [ERROR] compile failed.
     exit /b 1
