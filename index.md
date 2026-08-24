@@ -28,7 +28,7 @@ faq:
 <ol class="steps">
   <li>下载 <a href="https://raw.githubusercontent.com/l1i1/ClaudeDesktop-Installer/main/ClaudeDesktop-Installer.exe">ClaudeDesktop-Installer.exe</a>（约 36KB，自包含单文件）</li>
   <li>双击运行，UAC 弹窗点"是"，程序自动完成：下载 MSIX（GitHub 镜像 → R2 → 官方，有缓存则秒过）→ 校验 SHA256 → 静默安装 → Node.js 检测 → 安装 claude-code 并修复二进制 → 创建桌面快捷方式 → 聚合 API 配置</li>
-  <li>聚合 API 配置（回车即默认值）：Base URL 默认 `https://n.tokeness.io`，粘贴 Key（留空回车会自动打开 https://tokeness.io/keys 引导获取）</li>
+  <li>聚合 API 配置（回车即默认值）：Base URL 默认 `https://n.tokeness.dev`，粘贴 Key（留空回车会自动打开 https://tokeness.ai/keys 引导获取）</li>
   <li>完全退出 Claude Desktop（含系统托盘图标）再重新打开</li>
   <li>开始对话即用；仍提示连接失败时检查注册表策略值</li>
 </ol>
@@ -79,7 +79,7 @@ faq:
 
 国内无法直接登录 Anthropic 账号时，可配置第三方聚合端点：
 
-- 默认端点 `https://n.tokeness.io`，API Key 到 https://tokeness.io/keys 注册获取（格式 `sk-xxxxxx`）
+- 默认端点 `https://n.tokeness.dev`，API Key 到 https://tokeness.ai/keys 注册获取（格式 `sk-xxxxxx`）
 - 模型 ID 默认官方最新（2026-08：`claude-opus-5,claude-sonnet-5,claude-haiku-4-5`），回车即采用默认，或输入逗号分隔自定义
 - 写入位置（自动合并保留原内容）：
   - **注册表策略**（Claude Desktop 3P 推理配置，官方 MDM 方式）：`HKCU\SOFTWARE\Policies\Claude`（若 HKLM 已存在机器策略则写 HKLM），键为 `inferenceProvider=gateway`、`inferenceGatewayBaseUrl`、`inferenceGatewayApiKey`、`inferenceGatewayAuthScheme=bearer`
